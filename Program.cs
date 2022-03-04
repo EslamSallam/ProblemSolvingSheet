@@ -9,14 +9,17 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            long n;
-            long m;
+            int n;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
            
-            n = long.Parse(inputs[0]);
-            m = long.Parse(inputs[1]);
-            int result = (int)((n % 10) + (m % 10));
+            n = int.Parse(inputs[0]);
+            
+            long result = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                result += i;
+            }
             Console.WriteLine(result.ToString());
             
         }
