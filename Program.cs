@@ -11,22 +11,13 @@ namespace ProblemSolving
         {
             int a;
             a = Console.Read();
-            if ( a >= 48 && a <= 57)
+            if (a > 90)
             {
-                Console.WriteLine("IS DIGIT");
+                Console.WriteLine(((char)(a - 32)));
             }
             else
             {
-                if ( a >= 65 && a <= 90)
-                {
-                    Console.WriteLine("ALPHA");
-                    Console.WriteLine("IS CAPITAL");
-                }
-                else
-                {
-                    Console.WriteLine("ALPHA");
-                    Console.WriteLine("IS SMALL");
-                }
+                Console.WriteLine(((char)(a + 32)));
             }
         }
     }
