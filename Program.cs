@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProblemSolving
 {
@@ -9,22 +10,20 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            decimal a,b;
+            int a,b,c;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
            
-            a = decimal.Parse(inputs[0]);
-            b = decimal.Parse(inputs[1]);
-            
-            if (a % b == 0 || b % a == 0)
-            {
-                Console.WriteLine("Multiples");
-            }
-            else
-            {
-                Console.WriteLine("No Multiples");
-            }
-            
+            a = int.Parse(inputs[0]);
+            b = int.Parse(inputs[1]);
+            c = int.Parse(inputs[2]);
+            List<int> li = new List<int>();
+
+            li.Add(a);
+            li.Add(b);
+            li.Add(c);
+            li.Sort();
+            Console.WriteLine(li[0] + " " + li[2]);
         }
     }
 }
