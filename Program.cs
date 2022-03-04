@@ -7,16 +7,19 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            long x;
-            long y;
+            long a;
+            long b;      
+            long c;
+            long d;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
            
-            x = long.Parse(inputs[0]);
-            y = long.Parse(inputs[1]);
-            Console.WriteLine(x.ToString() + " + " + y.ToString() + " = " + (x + y).ToString());
-            Console.WriteLine(x.ToString() + " * " + y.ToString() + " = " + (x * y).ToString());
-            Console.WriteLine(x.ToString() + " - " + y.ToString() + " = " + (x - y).ToString());
+            a = long.Parse(inputs[0]);
+            b = long.Parse(inputs[1]);
+            c = long.Parse(inputs[2]);
+            d = long.Parse(inputs[3]);
+            Console.WriteLine("Difference = " + ((a*b) - (c * d)).ToString());
+            
         }
     }
 }
