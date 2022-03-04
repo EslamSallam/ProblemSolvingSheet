@@ -9,16 +9,41 @@ namespace ProblemSolving
 
         static void Main(string[] args)
         {
-            int a;
-            a = Console.Read();
-            if (a > 90)
+            string input;
+            long a,b;
+            input = Console.ReadLine();
+            string[] inputs;
+            if (input.Contains("+") == true)
             {
-                Console.WriteLine(((char)(a - 32)));
+                inputs = input.Split('+');
+                a = long.Parse(inputs[0]);
+                b = long.Parse(inputs[1]);
+                Console.WriteLine(a + b);
+            }
+            else if (input.Contains("-") == true)
+            {
+                inputs = input.Split('-');
+                a = long.Parse(inputs[0]);
+                b = long.Parse(inputs[1]);
+                Console.WriteLine(a - b);
+            }
+            else if (input.Contains("*") == true)
+            {
+                inputs = input.Split('*');
+                a = long.Parse(inputs[0]);
+                b = long.Parse(inputs[1]);
+                Console.WriteLine(a * b);
             }
             else
             {
-                Console.WriteLine(((char)(a + 32)));
+                inputs = input.Split('/');
+                a = long.Parse(inputs[0]);
+                b = long.Parse(inputs[1]);
+                Console.WriteLine(a / b);
             }
+
+
+
         }
     }
 }
