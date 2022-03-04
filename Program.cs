@@ -16,13 +16,13 @@ namespace ProblemSolving
             a = decimal.Parse(inputs[0]);
             b = decimal.Parse(inputs[1]);
             
-            if (a >= b)
+            if (a % b == 0 || b % a == 0)
             {
-                Console.WriteLine("Yes");
+                Console.WriteLine("Multiples");
             }
             else
             {
-                Console.WriteLine("No");
+                Console.WriteLine("No Multiples");
             }
             
         }
