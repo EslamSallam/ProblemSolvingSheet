@@ -16,22 +16,14 @@ namespace ProblemSolving
             a = decimal.Parse(inputs[0]);
             b = decimal.Parse(inputs[1]);
             
-            int floor = (int)Math.Floor(a / b);
-            int ceil = (int)Math.Ceiling(a / b);
-            int round;
-            double val = ((double)((a / b) - floor));
-            if (val < 0.5)
+            if (a >= b)
             {
-                round = floor;
+                Console.WriteLine("Yes");
             }
             else
             {
-                round = ceil;
+                Console.WriteLine("No");
             }
-
-            Console.WriteLine("floor " + a.ToString() + " / " + b.ToString() + " = " + floor.ToString());
-            Console.WriteLine("ceil " + a.ToString() + " / " + b.ToString() + " = " + ceil.ToString());
-            Console.WriteLine("round " + a.ToString() + " / " + b.ToString() + " = " + round.ToString());
             
         }
     }
