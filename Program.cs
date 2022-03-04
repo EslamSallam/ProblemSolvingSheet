@@ -9,21 +9,25 @@ namespace ProblemSolving
 
         static void Main(string[] args)
         {
-            string input;
-            int a,b,c;
-            input = Console.ReadLine();
-            string[] inputs = input.Split(' ');
-           
-            a = int.Parse(inputs[0]);
-            b = int.Parse(inputs[1]);
-            c = int.Parse(inputs[2]);
-            List<int> li = new List<int>();
-
-            li.Add(a);
-            li.Add(b);
-            li.Add(c);
-            li.Sort();
-            Console.WriteLine(li[0] + " " + li[2]);
+            string input1,input2;
+            string a,b,c,d;
+            input1 = Console.ReadLine();
+            input2 = Console.ReadLine();
+            string[] inputs = input1.Split(' ');
+            a = inputs[0];
+            b = inputs[1];
+            inputs = input2.Split(' ');
+            c = inputs[0];
+            d = inputs[1];
+            
+            if (b == d)
+            {
+                Console.WriteLine("ARE Brothers");
+            }
+            else
+            {
+                Console.WriteLine("NOT");
+            }
         }
     }
 }
