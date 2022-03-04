@@ -4,21 +4,20 @@ namespace ProblemSolving
 {
     internal class Program
     {
+        private const double PI = 3.141592653;
+
         static void Main(string[] args)
         {
             string input;
-            long a;
-            long b;      
-            long c;
-            long d;
+            long n;
+            long m;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
            
-            a = long.Parse(inputs[0]);
-            b = long.Parse(inputs[1]);
-            c = long.Parse(inputs[2]);
-            d = long.Parse(inputs[3]);
-            Console.WriteLine("Difference = " + ((a*b) - (c * d)).ToString());
+            n = long.Parse(inputs[0]);
+            m = long.Parse(inputs[1]);
+            int result = (int)((n % 10) + (m % 10));
+            Console.WriteLine(result.ToString());
             
         }
     }
