@@ -9,17 +9,14 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            int n;
+            ulong n;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
            
-            n = int.Parse(inputs[0]);
+            n = ulong.Parse(inputs[0]);
             
-            long result = 0;
-            for (int i = 1; i <= n; i++)
-            {
-                result += i;
-            }
+            ulong result = 0;
+            result = n * (n - 1) / 2 + n;
             Console.WriteLine(result.ToString());
             
         }
