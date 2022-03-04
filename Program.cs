@@ -9,24 +9,24 @@ namespace ProblemSolving
 
         static void Main(string[] args)
         {
-            string input1,input2;
-            string a,b,c,d;
-            input1 = Console.ReadLine();
-            input2 = Console.ReadLine();
-            string[] inputs = input1.Split(' ');
-            a = inputs[0];
-            b = inputs[1];
-            inputs = input2.Split(' ');
-            c = inputs[0];
-            d = inputs[1];
-            
-            if (b == d)
+            int a;
+            a = Console.Read();
+            if ( a >= 48 && a <= 57)
             {
-                Console.WriteLine("ARE Brothers");
+                Console.WriteLine("IS DIGIT");
             }
             else
             {
-                Console.WriteLine("NOT");
+                if ( a >= 65 && a <= 90)
+                {
+                    Console.WriteLine("ALPHA");
+                    Console.WriteLine("IS CAPITAL");
+                }
+                else
+                {
+                    Console.WriteLine("ALPHA");
+                    Console.WriteLine("IS SMALL");
+                }
             }
         }
     }
