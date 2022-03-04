@@ -9,15 +9,29 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            ulong n;
+            decimal a,b;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
            
-            n = ulong.Parse(inputs[0]);
+            a = decimal.Parse(inputs[0]);
+            b = decimal.Parse(inputs[1]);
             
-            ulong result = 0;
-            result = n * (n - 1) / 2 + n;
-            Console.WriteLine(result.ToString());
+            int floor = (int)Math.Floor(a / b);
+            int ceil = (int)Math.Ceiling(a / b);
+            int round;
+            double val = ((double)((a / b) - floor));
+            if (val < 0.5)
+            {
+                round = floor;
+            }
+            else
+            {
+                round = ceil;
+            }
+
+            Console.WriteLine("floor " + a.ToString() + " / " + b.ToString() + " = " + floor.ToString());
+            Console.WriteLine("ceil " + a.ToString() + " / " + b.ToString() + " = " + ceil.ToString());
+            Console.WriteLine("round " + a.ToString() + " / " + b.ToString() + " = " + round.ToString());
             
         }
     }
