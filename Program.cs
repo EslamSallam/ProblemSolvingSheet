@@ -10,36 +10,20 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            long a,b;
+            long a;
             input = Console.ReadLine();
             string[] inputs;
-            if (input.Contains("+") == true)
+
+            a = long.Parse(input);
+            a = (long)(a / Math.Pow(10, (input.Length - 1)));
+
+            if (a % 2 == 0)
             {
-                inputs = input.Split('+');
-                a = long.Parse(inputs[0]);
-                b = long.Parse(inputs[1]);
-                Console.WriteLine(a + b);
-            }
-            else if (input.Contains("-") == true)
-            {
-                inputs = input.Split('-');
-                a = long.Parse(inputs[0]);
-                b = long.Parse(inputs[1]);
-                Console.WriteLine(a - b);
-            }
-            else if (input.Contains("*") == true)
-            {
-                inputs = input.Split('*');
-                a = long.Parse(inputs[0]);
-                b = long.Parse(inputs[1]);
-                Console.WriteLine(a * b);
+                Console.WriteLine("EVEN");
             }
             else
             {
-                inputs = input.Split('/');
-                a = long.Parse(inputs[0]);
-                b = long.Parse(inputs[1]);
-                Console.WriteLine(a / b);
+                Console.WriteLine("ODD");
             }
 
 
