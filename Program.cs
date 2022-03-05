@@ -10,45 +10,47 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            int a,b;
-            char ch;
+            int a,b,c;
+            char s,q;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
 
             a = int.Parse(inputs[0]);
-            ch = char.Parse(inputs[1]);
+            s = char.Parse(inputs[1]);
             b = int.Parse(inputs[2]);
-            if (ch == '>')
+            q = char.Parse(inputs[3]);
+            c = int.Parse(inputs[4]);
+            if (s == '+')
             {
-                if (a > b)
+                if (a + b == c)
                 {
-                    Console.WriteLine("Right");
+                    Console.WriteLine("Yes");
                 }
                 else
                 {
-                    Console.WriteLine("Wrong");
+                    Console.WriteLine(a + b);
                 }
             }
-            else if (ch == '<')
+            else if (s == '-')
             {
-                if (a < b)
+                if (a - b == c)
                 {
-                    Console.WriteLine("Right");
+                    Console.WriteLine("Yes");
                 }
                 else
                 {
-                    Console.WriteLine("Wrong");
+                    Console.WriteLine(a - b);
                 }
             }
-            else if (ch == '=')
+            else if (s == '*')
             {
-                if (a == b)
+                if (a * b == c)
                 {
-                    Console.WriteLine("Right");
+                    Console.WriteLine("Yes");
                 }
                 else
                 {
-                    Console.WriteLine("Wrong");
+                    Console.WriteLine(a * b);
                 }
             }
         }
