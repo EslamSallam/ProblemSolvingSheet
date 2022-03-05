@@ -10,22 +10,40 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            long a;
+            double a,b;
             input = Console.ReadLine();
             string[] inputs;
-
-            a = long.Parse(input);
-            a = (long)(a / Math.Pow(10, (input.Length - 1)));
-
-            if (a % 2 == 0)
+            inputs = input.Split(' ');
+            a = double.Parse(inputs[0]);
+            b = double.Parse(inputs[1]);
+            if ( a == 0 && b == 0)
             {
-                Console.WriteLine("EVEN");
+                Console.WriteLine("Origem");
+            }
+            else if (b == 0)
+            {
+                Console.WriteLine("Eixo X");
+            }
+            else if (a == 0)
+            {
+                Console.WriteLine("Eixo Y");
+            }
+            else if (a > 0 && b > 0)
+            {
+                Console.WriteLine("Q1");
+            }
+            else if (a < 0 && b > 0)
+            {
+                Console.WriteLine("Q2");
+            }
+            else if (a < 0 && b < 0)
+            {
+                Console.WriteLine("Q3");
             }
             else
             {
-                Console.WriteLine("ODD");
+                Console.WriteLine("Q4");
             }
-
 
 
         }
