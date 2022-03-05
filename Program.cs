@@ -10,20 +10,46 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            float a;
-            int b;
+            int a,b;
+            char ch;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
 
-            a = float.Parse(inputs[0]);
-            b = (int)a;
-            if (a - b > 0)
+            a = int.Parse(inputs[0]);
+            ch = char.Parse(inputs[1]);
+            b = int.Parse(inputs[2]);
+            if (ch == '>')
             {
-                Console.WriteLine("float " + b + " " + (a - b));
+                if (a > b)
+                {
+                    Console.WriteLine("Right");
+                }
+                else
+                {
+                    Console.WriteLine("Wrong");
+                }
             }
-            else
+            else if (ch == '<')
             {
-                Console.WriteLine("int " + b);
+                if (a < b)
+                {
+                    Console.WriteLine("Right");
+                }
+                else
+                {
+                    Console.WriteLine("Wrong");
+                }
+            }
+            else if (ch == '=')
+            {
+                if (a == b)
+                {
+                    Console.WriteLine("Right");
+                }
+                else
+                {
+                    Console.WriteLine("Wrong");
+                }
             }
         }
     }
