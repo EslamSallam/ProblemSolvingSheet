@@ -10,48 +10,23 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            int a,b,c;
-            char s,q;
+            int l1,r1,l2,r2;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
 
-            a = int.Parse(inputs[0]);
-            s = char.Parse(inputs[1]);
-            b = int.Parse(inputs[2]);
-            q = char.Parse(inputs[3]);
-            c = int.Parse(inputs[4]);
-            if (s == '+')
+            l1 = int.Parse(inputs[0]);
+            r1 = int.Parse(inputs[1]);
+            l2 = int.Parse(inputs[2]);
+            r2 = int.Parse(inputs[3]);
+            int l = Math.Max(l1, l2);
+            int r = Math.Min(r1, r2);
+            if (l > r)
             {
-                if (a + b == c)
-                {
-                    Console.WriteLine("Yes");
-                }
-                else
-                {
-                    Console.WriteLine(a + b);
-                }
+                Console.WriteLine(-1);
             }
-            else if (s == '-')
+            else
             {
-                if (a - b == c)
-                {
-                    Console.WriteLine("Yes");
-                }
-                else
-                {
-                    Console.WriteLine(a - b);
-                }
-            }
-            else if (s == '*')
-            {
-                if (a * b == c)
-                {
-                    Console.WriteLine("Yes");
-                }
-                else
-                {
-                    Console.WriteLine(a * b);
-                }
+                Console.WriteLine(l + " " + r);
             }
         }
     }
