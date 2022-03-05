@@ -10,24 +10,36 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            int l1,r1,l2,r2;
+            ulong a,b,c,d;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
 
-            l1 = int.Parse(inputs[0]);
-            r1 = int.Parse(inputs[1]);
-            l2 = int.Parse(inputs[2]);
-            r2 = int.Parse(inputs[3]);
-            int l = Math.Max(l1, l2);
-            int r = Math.Min(r1, r2);
-            if (l > r)
+            a = ulong.Parse(inputs[0]);
+            b = ulong.Parse(inputs[1]);
+            c = ulong.Parse(inputs[2]);
+            d = ulong.Parse(inputs[3]);
+
+            if ( a > 1000)
             {
-                Console.WriteLine(-1);
+                a = a % 1000;
             }
-            else
+            if ( b > 1000)
             {
-                Console.WriteLine(l + " " + r);
+                b = b % 1000;
             }
+            if ( c > 1000)
+            {
+                c = c % 1000;
+            }
+            if ( d > 1000)
+            {
+                d = d % 1000;
+            }
+            double res = (a * b * c * d) / 100.0;
+            long digits = (long)(a * b * c * d) / 100;
+            double perci =Math.Round(res - digits,2);
+            int output = (int)(perci * 100);
+            Console.WriteLine(output);
         }
     }
 }
