@@ -10,41 +10,17 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            double a,b;
+            int a;
             input = Console.ReadLine();
             string[] inputs;
-            inputs = input.Split(' ');
-            a = double.Parse(inputs[0]);
-            b = double.Parse(inputs[1]);
-            if ( a == 0 && b == 0)
-            {
-                Console.WriteLine("Origem");
-            }
-            else if (b == 0)
-            {
-                Console.WriteLine("Eixo X");
-            }
-            else if (a == 0)
-            {
-                Console.WriteLine("Eixo Y");
-            }
-            else if (a > 0 && b > 0)
-            {
-                Console.WriteLine("Q1");
-            }
-            else if (a < 0 && b > 0)
-            {
-                Console.WriteLine("Q2");
-            }
-            else if (a < 0 && b < 0)
-            {
-                Console.WriteLine("Q3");
-            }
-            else
-            {
-                Console.WriteLine("Q4");
-            }
-
+        
+            a = int.Parse(input);
+            int year = a / 365;
+            a = a%365;
+            int month = a / 30;
+            a = a%30;
+            int day = a;
+            Console.WriteLine(year + " years\n" + month + " months\n" + day + " days\n");
 
         }
     }
