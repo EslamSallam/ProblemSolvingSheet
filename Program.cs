@@ -10,30 +10,22 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            double n;
+            int a, b, c;
             input = Console.ReadLine();
             string[] inputs = input.Split(' ');
-            n = double.Parse(inputs[0]);
-            if (n >= 0 && n <= 25)
-            {
-                Console.WriteLine("Interval [0,25]");
-            }
-            else if (n > 25 && n <= 50)
-            {
-                Console.WriteLine("Interval (25,50]");
-            }
-            else if (n > 50 && n <= 75)
-            {
-                Console.WriteLine("Interval (50,75]");
-            }
-            else if (n > 75 && n <= 100)
-            {
-                Console.WriteLine("Interval (75,100]");
-            }
-            else
-            {
-                Console.WriteLine("Out of Intervals");
-            }
+
+            a = int.Parse(inputs[0]);
+            b = int.Parse(inputs[1]);
+            c = int.Parse(inputs[2]);
+            List<int> li = new List<int>();
+
+            li.Add(a);
+            li.Add(b);
+            li.Add(c);
+            li.Sort();
+            Console.WriteLine(li[0] + "\n" + li[1] + "\n" + li[2]);
+            Console.WriteLine();
+            Console.WriteLine(a + "\n" + b + "\n" + c);
         }
     }
 }
