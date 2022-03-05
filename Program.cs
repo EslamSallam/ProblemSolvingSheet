@@ -10,18 +10,30 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             string input;
-            int a;
+            double n;
             input = Console.ReadLine();
-            string[] inputs;
-        
-            a = int.Parse(input);
-            int year = a / 365;
-            a = a%365;
-            int month = a / 30;
-            a = a%30;
-            int day = a;
-            Console.WriteLine(year + " years\n" + month + " months\n" + day + " days\n");
-
+            string[] inputs = input.Split(' ');
+            n = double.Parse(inputs[0]);
+            if (n >= 0 && n <= 25)
+            {
+                Console.WriteLine("Interval [0,25]");
+            }
+            else if (n > 25 && n <= 50)
+            {
+                Console.WriteLine("Interval (25,50]");
+            }
+            else if (n > 50 && n <= 75)
+            {
+                Console.WriteLine("Interval (50,75]");
+            }
+            else if (n > 75 && n <= 100)
+            {
+                Console.WriteLine("Interval (75,100]");
+            }
+            else
+            {
+                Console.WriteLine("Out of Intervals");
+            }
         }
     }
 }
