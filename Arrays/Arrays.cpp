@@ -94,10 +94,63 @@ void practice3_Swap2Columns()
 	}
 }
 
+void practice4_GreedyRobot()
+{
+	int arr[100][100];
+	int rows, cols;
+	cin >> rows >> cols;
+	for (int row = 0; row < rows; row++)
+	{
+		for (int col = 0; col < cols; col++)
+		{
+			cin >> arr[row][col];
+		}
+	}
+	int sum = 0;
+	int i = 0, j = 0;
+	for (; i < rows && j < cols;)
+	{
+		int best_val = -1, best_i = -1, best_j = -1;
+		sum += arr[i][j];
+		if (j + 1 < cols)
+		{
+			best_val = arr[i][j + 1];
+			best_i = i;
+			best_j = j + 1;
+		}
+		if (i + 1 < rows)
+		{
+			if (best_i == -1 || arr[i + 1][j] > best_val)
+			{
+				best_val = arr[i + 1][j];
+				best_i = i + 1;
+				best_j = j;
+			}
+		}
+		if (i + 1 < rows && j + 1 < cols)
+		{
+			if (best_i == -1 || arr[i + 1][j + 1] > best_val)
+			{
+				best_val = arr[i + 1][j + 1];
+				best_i = i + 1;
+				best_j = j + 1;
+			}
+		}
+
+		if (best_val == -1)
+			break;
+		i = best_i;
+		j = best_j;
+	}
+	cout << sum;
+
+}
+
 int main()
 {
 	//practice1_MaxValue();
 	//practice2_SpecialPrint();
-	practice3_Swap2Columns();
+	//practice3_Swap2Columns();
+	practice4_GreedyRobot();
 }
 
