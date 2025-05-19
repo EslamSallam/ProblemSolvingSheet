@@ -240,9 +240,157 @@ void practice7_Transpose()
 	{
 		for (int j = 0; j < n; j++)
 		{
-			cout<<arrT[i][j]<<" ";
+			cout << arrT[i][j] << " ";
 		}
 		cout << endl;
+	}
+}
+
+void practice8_HowManyPrimes()
+{
+	int arr[100][100];
+	int n, m;
+	cin >> n >> m;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+	int q;
+	cin >> q;
+	int a, b, c, d;
+	for (int i = 0; i < q; i++)
+	{
+		cin >> a >> b >> c >> d;
+		for (int u = a; u <= c; u++)
+		{
+			for (int v = b; v <= d; v++)
+			{
+				//isPrime(arr[u][v]);
+			}
+		}
+	}
+}
+
+void practice9_FindMountains()
+{
+	int arr[100][100];
+	int n, m;
+	cin >> n >> m;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+	int nei[9] = { -1,-1,-1,0,0,0,1,1,1 }, nej[9] = { -1,0,1,-1,0,1,-1,0,1 };
+	int local_i = 0, local_j = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			int current = arr[i][j];
+			bool isMountain = true;
+			for (int d = 0; d < 9; d++)
+			{
+				local_i = i + nei[d], local_j = j + nej[d];
+				if (local_i < n && local_i >= 0 && local_j < m && local_j >= 0)
+				{
+					if (current < arr[local_i][local_j])
+					{
+						isMountain = false;
+					}
+				}
+			}
+			if (isMountain)
+			{
+				cout << i << " " << j << "\n";
+			}
+		}
+	}
+
+}
+
+void practice10_ActiveRobot()
+{
+	int n, m;
+	cin >> n >> m;
+	int k;
+	cin >> k;
+	int karr[10000][2];
+	int rarr[10000][2];
+	int current_i = 0, current_j = 0;
+	for (int i = 0; i < k; i++)
+	{
+		cin >> karr[i][0] >> karr[i][1];
+		if (karr[i][0] == 1)
+		{
+			current_i -= karr[i][1] % n;
+			if (current_i < 0)
+				current_i += n;
+		}
+		else if (karr[i][0] == 2)
+		{
+			current_j += karr[i][1] % m;
+			if (current_j >= m)
+				current_j -= m;
+		}
+		else if (karr[i][0] == 3)
+		{
+			current_i += karr[i][1] % n;
+			if (current_i >= n)
+				current_i -= n;
+		}
+		else if (karr[i][0] == 4)
+		{
+			current_j -= karr[i][1] % m;
+			if (current_j < 0)
+				current_j += m;
+		}
+		rarr[i][0] = current_i;
+		rarr[i][1] = current_j;
+	}
+	for (int i = 0; i < k; i++)
+	{
+		cout << "(" << rarr[i][0] << "," << rarr[i][1] << ")";
+	}
+
+}
+
+void practice11_Flatten3DArray()
+{
+	int d, r, c;
+	cin >> d >> r >> c;
+	int idx = 0;
+	for (int i = 0; i < d; i++)
+	{
+		for (int j = 0; j < r; j++)
+		{
+			for (int k = 0; k < c; k++)
+			{
+				cout << idx++ << " = " << i << " " << j << " " << k << "\n";
+			}
+		}
+	}
+	while (true)
+	{
+		int input;
+		cin >> input;
+		int dd, rr, cc;
+		if (input == 1)
+		{
+			cin >> dd >> rr >> cc;
+			cout << dd * r * c + rr * c + cc;
+		}
+		if (input == 2)
+		{
+			cin >> idx;
+			cout << "(" << idx / (r * c) << "," << (idx % r) << "," << (idx % c) << ")";
+		}
 	}
 }
 
@@ -255,5 +403,9 @@ int main()
 	//practice5_SmallerRow();
 	//practice6_TriangularMatrix();
 	//practice7_Transpose();
+	//practice8_HowManyPrimes();
+	//practice9_FindMountains();
+	//practice10_ActiveRobot();
+	practice11_Flatten3DArray();
 }
 
