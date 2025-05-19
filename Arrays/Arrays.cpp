@@ -146,11 +146,114 @@ void practice4_GreedyRobot()
 
 }
 
+void practice5_SmallerRow()
+{
+	int arr[100][100];
+	int rows, cols;
+	cin >> rows >> cols;
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+
+	int q;
+	cin >> q;
+	int query[100][2];
+	for (int i = 0; i < q; i++)
+	{
+		cin >> query[i][0] >> query[i][1];
+		query[i][0]--;
+		query[i][1]--;
+	}
+	for (int i = 0; i < q; i++)
+	{
+		bool isLess = true;
+		for (int j = 0; j < cols; j++)
+		{
+			if (arr[query[i][0]][j] > arr[query[i][1]][j])
+			{
+				isLess = false;
+			}
+		}
+		if (isLess)
+		{
+			cout << "YES" << endl;
+		}
+		else
+		{
+			cout << "NO" << endl;
+		}
+	}
+}
+
+void practice6_TriangularMatrix()
+{
+	int n;
+	cin >> n;
+	int arr[100][100];
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+	int UpperM = 0, LowerM = 0;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i; j < n; j++)
+		{
+			UpperM += arr[i][j];
+		}
+		for (int j = 0; j < i + 1; j++)
+		{
+			LowerM += arr[i][j];
+		}
+	}
+	cout << LowerM << "\n" << UpperM;
+}
+
+void practice7_Transpose()
+{
+	int arr[100][100];
+	int n, m;
+	cin >> n >> m;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+	int arrT[100][100];
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			arrT[i][j] = arr[j][i];
+		}
+	}
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout<<arrT[i][j]<<" ";
+		}
+		cout << endl;
+	}
+}
+
 int main()
 {
 	//practice1_MaxValue();
 	//practice2_SpecialPrint();
 	//practice3_Swap2Columns();
-	practice4_GreedyRobot();
+	//practice4_GreedyRobot();
+	//practice5_SmallerRow();
+	//practice6_TriangularMatrix();
+	//practice7_Transpose();
 }
 
