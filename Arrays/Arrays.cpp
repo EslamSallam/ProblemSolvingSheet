@@ -376,6 +376,7 @@ void practice11_Flatten3DArray()
 			}
 		}
 	}
+
 	while (true)
 	{
 		int input;
@@ -406,6 +407,6 @@ int main()
 	//practice8_HowManyPrimes();
 	//practice9_FindMountains();
 	//practice10_ActiveRobot();
-	practice11_Flatten3DArray();
+	//practice11_Flatten3DArray();
 }
 
