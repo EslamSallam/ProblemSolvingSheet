@@ -9,10 +9,20 @@ using namespace std;
 int main()
 {
 	int a, b, c, d, e, f;
-	int arrM[6] = { 1,3,5,7,4,2 };
+	int arrM1[6] = { 1,3,5,7,4,2 };
+	int arrM2[6] = { 1,3,5,7,4,2 };
 	int arrA[6] = { 1,2,3,4,5,6 };
 	int arr[5] = { 1,8,2,10,3 };
-	left_max(arrM, 6);
+	int arrS[5] = { 1,3,4,6,7 };
+	int arrP[5] = { 1,3,4,3,1 };
+	int arrNotP[5] = { 1,3,4,6,1 };
+	cout << isPalindrome(arrNotP, 5, 0)<<endl;
+	cout << isPalindrome(arrP, 5, 0) << endl;
+	cout << suffix_sum(arrS, 5, 3) << endl;
+	cout << prefix_sum(arrS, 5, 3) << endl;
+	right_max(arrM1, 6);
+	cout << endl;
+	left_max(arrM2, 6);
 	cout << endl;
 	arr_accumulation(arrA, 6);
 	cout << endl;
@@ -206,10 +216,56 @@ void arr_accumulation(int arr[], int len)
 void left_max(int arr[], int len)
 {
 	if (len == 1)
+	{
+		cout << arr[len - 1] << " ";
 		return;
+	}
 	left_max(arr, len - 1);
 	arr[len - 1] = max(arr[len - 2], arr[len - 1]);
 	cout << arr[len - 1] << " ";
+}
+
+void right_max(int arr[], int len)
+{
+	if (len == 1)
+	{
+		cout << arr[len - 1] << " ";
+		return;
+	}
+	arr[len - 2] = max(arr[len - 2], arr[len - 1]);
+	right_max(arr, len - 1);
+	cout << arr[len - 1] << " ";
+}
+
+int suffix_sum(int arr[], int len, int n)
+{
+	if (n == 1)
+		return arr[len - 1];
+
+	return arr[len - n] + suffix_sum(arr, len, n - 1);
+}
+int prefix_sum(int arr[], int len, int n)
+{
+	if (n == 1)
+		return arr[0];
+
+	return arr[n - 1] + prefix_sum(arr, len, n - 1) ;
+}
+
+bool isPalindrome(int arr[], int len,int st)
+{
+	if (len <= 1)
+		return true;
+	if (arr[st] != arr[len - 1])
+		return false;
+	return isPalindrome(arr, len - 1, st + 1);
+}
+
+bool is_prefix(string main, string prefix, int start_pos = 0)
+{
+	
+	if (main[start_pos] == prefix[])
+	return false;
 }
 
 
