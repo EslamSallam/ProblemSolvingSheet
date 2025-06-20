@@ -16,7 +16,23 @@ int main()
 	int arrS[5] = { 1,3,4,6,7 };
 	int arrP[5] = { 1,3,4,3,1 };
 	int arrNotP[5] = { 1,3,4,6,1 };
-	cout << isPalindrome(arrNotP, 5, 0)<<endl;
+	int grid[100][100];
+	cout << fibonacci(6) << endl;
+	int row, col, ROWS, COLS;
+	cin >> row >> col >> ROWS >> COLS;
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cin >> grid[i][j];
+		}
+	}
+	string str = "abcdefgh";
+	string prefix = "bcd";
+//	cout << path_sum(grid, 0, 0, ROWS, COLS) << endl;
+	cout << count_primes(1, 50) << endl;
+	cout << is_substring(str, prefix, 0) << endl;
+	cout << isPalindrome(arrNotP, 5, 0) << endl;
 	cout << isPalindrome(arrP, 5, 0) << endl;
 	cout << suffix_sum(arrS, 5, 3) << endl;
 	cout << prefix_sum(arrS, 5, 3) << endl;
@@ -94,6 +110,8 @@ int GetMax(int a, int b, int c, int d, int e, int f)
 		return m2;
 	}
 }
+
+
 
 
 string reverse_str(const string& str)
@@ -249,24 +267,105 @@ int prefix_sum(int arr[], int len, int n)
 	if (n == 1)
 		return arr[0];
 
-	return arr[n - 1] + prefix_sum(arr, len, n - 1) ;
+	return arr[n - 1] + prefix_sum(arr, len, n - 1);
 }
 
-bool isPalindrome(int arr[], int len,int st)
+bool isPalindrome(int arr[], int len, int st)
 {
-	if (len <= 1)
+	if (len <= st)
 		return true;
 	if (arr[st] != arr[len - 1])
 		return false;
 	return isPalindrome(arr, len - 1, st + 1);
 }
 
-bool is_prefix(string main, string prefix, int start_pos = 0)
+bool is_substring(string main, string prefix, int start_pos)
 {
-	
-	if (main[start_pos] == prefix[])
-	return false;
+	for (int i = 0; i < prefix.length() && i + start_pos < main.length(); i++)
+	{
+		if (main[i + start_pos] != prefix[i])
+		{
+			return is_substring(main, prefix, start_pos + 1);
+		}
+	}
+	if (start_pos > main.length() - prefix.length())
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }
 
+int count_primes(int start, int end)
+{
+	if (start > end)
+	{
+		return 0;
+	}
+	if (is_prime(start))
+	{
+		return 1 + count_primes(start + 1, end);
+	}
+	else
+	{
+		return count_primes(start + 1, end);
+	}
+
+}
+
+bool is_prime(int n, int start)
+{
+	if (n == 1 || n == 0 || n % 2 == 0)
+		return false;
+	if (start == n)
+		return true;
+	if (n % start == 0)
+		return false;
+	return is_prime(n, start + 1);
+}
+
+//int path_sum(int grid[100][100], int row, int col, int ROWS, int COLS)
+//{
+//	/*if (row == ROWS - 1 && col == COLS - 1)
+//		return grid[row][col];
+//	int current = grid[row][col];
+//
+//	int max = -1, next_row = 0, next_col = 0;
+//	if (row < ROWS - 1 && col < COLS - 1)
+//	{
+//		max = grid[row + 1][col + 1];
+//		next_row = row + 1;
+//		next_col = col + 1;
+//	}
+//	if (row < ROWS - 1)
+//	{
+//		if (max == -1 || max < grid[row + 1][col])
+//		{
+//			max = grid[row + 1][col];
+//			next_row = row + 1;
+//			next_col = col;
+//		}
+//	}
+//	if (col < COLS - 1)
+//	{
+//		if (max == -1 || max < grid[row][col + 1])
+//		{
+//			max = grid[row][col + 1];
+//			next_row = row;
+//			next_col = col + 1;
+//		}
+//	}
+//	return current + path_sum(grid, next_row, next_col, ROWS, COLS);*/
+//}
+
+
+int fibonacci(int n)
+{
+	if (n <= 1)
+		return 1;
+	return fibonacci(n - 1) + fibonacci(n - 2);
+}
 
 
