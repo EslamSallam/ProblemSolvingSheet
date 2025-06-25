@@ -366,8 +366,21 @@ string removeDuplicates(string s)
 	return output;
 }
 
+int ScoreOfParentheses(string input)
+{
+	map<char, char> mp;
+	mp[')'] = '(';
+	stack<int> ops;
+	stack<char> parentheses;
+	int score = 0;
+	
+	
+}
+
 int main()
 {
+
+	cout << ScoreOfParentheses("()((())())");
 	cout << removeDuplicates("abbaca") << "\n";
 	AllWordsPrefixOrdered();
 	OurStack s;
